@@ -551,28 +551,31 @@ public class FlutterWebView implements PlatformView, MethodCallHandler{
     if (WebViewFlutterPlugin.activity==null||!FileUtil.checkSDcard(WebViewFlutterPlugin.activity)) {
       return;
     }
-    String[] selectPicTypeStr = {WebViewFlutterPlugin.activity.getString(R.string.take_photo),
-            WebViewFlutterPlugin.activity.getString(R.string.photo_library)};
-    new AlertDialog.Builder(WebViewFlutterPlugin.activity)
-            .setOnCancelListener(new ReOnCancelListener())
-            .setItems(selectPicTypeStr,
-                    new DialogInterface.OnClickListener() {
-                      @Override
-                      public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                          // 相机拍摄
-                          case 0:
-                            openCamera();
-                            break;
-                          // 手机相册
-                          case 1:
-                            openImageChooserActivity();
-                            break;
-                          default:
-                            break;
-                        }
-                      }
-                    }).show();
+
+    openImageChooserActivity();
+
+//    String[] selectPicTypeStr = {WebViewFlutterPlugin.activity.getString(R.string.take_photo),
+//            WebViewFlutterPlugin.activity.getString(R.string.photo_library)};
+//    new AlertDialog.Builder(WebViewFlutterPlugin.activity)
+//            .setOnCancelListener(new ReOnCancelListener())
+//            .setItems(selectPicTypeStr,
+//                    new DialogInterface.OnClickListener() {
+//                      @Override
+//                      public void onClick(DialogInterface dialog, int which) {
+//                        switch (which) {
+//                          // 相机拍摄
+//                          case 0:
+//                            openCamera();
+//                            break;
+//                          // 手机相册
+//                          case 1:
+//                            openImageChooserActivity();
+//                            break;
+//                          default:
+//                            break;
+//                        }
+//                      }
+//                    }).show();
   }
 
   /**
